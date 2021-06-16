@@ -39,5 +39,5 @@ int main()
 	std::cin.get();
 	system("pause");
 	syscallWork::SetCallNumber(NtTermProc);
-	NtApiWork::SyscallTerminateProc(GetCurrentProcess(), 0x1337);
+	NtApiWork::SyscallTerminateProc((HANDLE)-1, 0x1337);
 }
