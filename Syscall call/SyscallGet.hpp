@@ -93,8 +93,9 @@ namespace syscallWork {
 
         return ERROR_SUCCESS;
     }
-
-    DWORD GetSyscallByName(std::string hashValue) {
+    
+    
+     DWORD GetSyscallByName(std::string hashValue) {
 
         if (!hDll.get() || hDll.get() == INVALID_HANDLE_VALUE)
             return GetLastError();
@@ -144,7 +145,18 @@ namespace syscallWork {
 
         return ERROR_SUCCESS;
 
-
-
     }
+    
+    bool AutoGetSetSyscallumber(std::string hashValue)
+    {
+        DWORD syscall = NULL;
+        syscall = GetSyscallByName(hashValue);
+         
+        if (syscall)
+                    {return SetCallNumber(syscall);  }
+         else   {  return false;  }
+    }
+    
+    
+    
 }
